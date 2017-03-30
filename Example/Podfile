@@ -1,0 +1,6 @@
+use_frameworks!
+target 'MolinaCore_Tests' do
+  pod 'MolinaCore', :path => '../'
+  
+  
+end

@@ -42,16 +42,21 @@ open class MockHTTPUtility: IHTTPUtility {
         
         let request = URLRequest(url: url)
         
-        DispatchQueue.global().asyncAfter(seconds: delayDuration) { 
+        DispatchQueue.global().asyncAfter(seconds: delayDuration) {
             
-            if self.useDefaultResponses {
-                let httpResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)!
-                let data = self.cache[url] ?? Data()
-                completionHandler(httpResponse, data, nil)
-            } else {
-                completionHandler(self.httpResponse, self.data, self.error)
+            DispatchQueue.main.sync {
+                
+                if self.useDefaultResponses {
+                    let httpResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)!
+                    let data = self.cache[url] ?? Data()
+                    completionHandler(httpResponse, data, nil)
+                } else {
+                    completionHandler(self.httpResponse, self.data, self.error)
+                }
+                self.delegate?.httpUtilityActivityDidEnd(self)
             }
-            self.delegate?.httpUtilityActivityDidEnd(self)
+            
+            
         }
         return request
     }

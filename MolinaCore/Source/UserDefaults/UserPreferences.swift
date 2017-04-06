@@ -10,8 +10,8 @@ import Foundation
 
 public class UserPreferences {
     
-    fileprivate let userIdentifier: String
-    fileprivate let userDefaults: UserDefaults
+    public let userIdentifier: String
+    public let userDefaults: UserDefaults
     
     fileprivate struct Constants {
         static let preferenceTouchId = "com.app.PreferenceTouchId"

@@ -55,6 +55,7 @@
 		5585E0351E932353001645D1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5585E0051E932353001645D1 /* WebViewController.swift */; };
 		5585E0361E932353001645D1 /* LinkableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5585E0071E932353001645D1 /* LinkableTextView.swift */; };
 		5585E0371E932353001645D1 /* UIOverlayProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5585E0081E932353001645D1 /* UIOverlayProtocol.swift */; };
+		55C67CCF1E96C5420018C1AA /* MolinaCore.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 55C67CCE1E96C5420018C1AA /* MolinaCore.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +109,7 @@
 		5585E0051E932353001645D1 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		5585E0071E932353001645D1 /* LinkableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkableTextView.swift; sourceTree = "<group>"; };
 		5585E0081E932353001645D1 /* UIOverlayProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIOverlayProtocol.swift; sourceTree = "<group>"; };
+		55C67CCE1E96C5420018C1AA /* MolinaCore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MolinaCore.podspec; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 		5585DFC81E9322F8001645D1 /* MolinaCore */ = {
 			isa = PBXGroup;
 			children = (
+				55C67CCE1E96C5420018C1AA /* MolinaCore.podspec */,
 				5585DFD11E932346001645D1 /* Source */,
 				5585DFC91E9322F8001645D1 /* MolinaCore.h */,
 				5585DFCA1E9322F8001645D1 /* Info.plist */,
@@ -342,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55C67CCF1E96C5420018C1AA /* MolinaCore.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

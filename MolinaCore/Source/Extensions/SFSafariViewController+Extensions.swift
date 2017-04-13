@@ -16,7 +16,9 @@ extension SFSafariViewController {
     open static func open(url: URL, delegate: SFSafariViewControllerDelegate) -> SFSafariViewController {
         let svc = SFSafariViewController(url: url)
         svc.delegate = delegate
-        svc.preferredBarTintColor = UIColor.molinaTeal
+        if #available(iOS 10.0, *) {
+            svc.preferredBarTintColor = UIColor.molinaTeal
+        }
         return svc
     }
 }

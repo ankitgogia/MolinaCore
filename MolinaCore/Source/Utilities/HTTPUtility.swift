@@ -75,7 +75,7 @@ open class HTTPUtility: IHTTPUtility {
 
     @discardableResult
     open func get(_ url: URL, data: Any?, headers: [String:String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return requestHandler(url: url, method: "PUT", data: data, headers: headers, completionHandler: completionHandler)
+        return requestHandler(url: url, method: "GET", data: data, headers: headers, completionHandler: completionHandler)
     }
 
     @discardableResult

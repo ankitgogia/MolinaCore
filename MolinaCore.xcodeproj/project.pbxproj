@@ -54,7 +54,6 @@
 		5585E0341E932353001645D1 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5585E0041E932353001645D1 /* UIViewController.swift */; };
 		5585E0351E932353001645D1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5585E0051E932353001645D1 /* WebViewController.swift */; };
 		5585E0361E932353001645D1 /* LinkableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5585E0071E932353001645D1 /* LinkableTextView.swift */; };
-		5585E0371E932353001645D1 /* UIOverlayProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5585E0081E932353001645D1 /* UIOverlayProtocol.swift */; };
 		55C67CCF1E96C5420018C1AA /* MolinaCore.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 55C67CCE1E96C5420018C1AA /* MolinaCore.podspec */; };
 /* End PBXBuildFile section */
 
@@ -108,7 +107,6 @@
 		5585E0041E932353001645D1 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		5585E0051E932353001645D1 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		5585E0071E932353001645D1 /* LinkableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkableTextView.swift; sourceTree = "<group>"; };
-		5585E0081E932353001645D1 /* UIOverlayProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIOverlayProtocol.swift; sourceTree = "<group>"; };
 		55C67CCE1E96C5420018C1AA /* MolinaCore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MolinaCore.podspec; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -270,7 +268,6 @@
 			isa = PBXGroup;
 			children = (
 				5585E0071E932353001645D1 /* LinkableTextView.swift */,
-				5585E0081E932353001645D1 /* UIOverlayProtocol.swift */,
 			);
 			name = Views;
 			path = Source/Views;
@@ -390,7 +387,6 @@
 				5585E0361E932353001645D1 /* LinkableTextView.swift in Sources */,
 				5585E0211E932353001645D1 /* UIColor.swift in Sources */,
 				5585E0121E932353001645D1 /* JSONSerialization.swift in Sources */,
-				5585E0371E932353001645D1 /* UIOverlayProtocol.swift in Sources */,
 				5585E0221E932353001645D1 /* UIDevice.swift in Sources */,
 				5585E0321E932353001645D1 /* DarkUI.swift in Sources */,
 				5585E02E1E932353001645D1 /* HTTPUtility.swift in Sources */,

@@ -39,7 +39,7 @@ open class HTTPUtility: IHTTPUtility {
             request.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
         }
 
-        log.debug(url, JSON(headers as Any), JSON(data as Any))
+        log.debug(url, method, "\n", JSON(headers as Any), "\n", JSON(data as Any))
 
         let task = self.session.dataTask(with: request) { data, response, error in
 
@@ -53,7 +53,7 @@ open class HTTPUtility: IHTTPUtility {
                 return nil
             }()
 
-            log.debug(url, JSON(headers as Any), JSON(data as Any), httpResponse.statusCode, JSON(responseJson as Any), error?.localizedDescription)
+            log.debug(url, method, "\n", JSON(headers as Any), "\n", JSON(data as Any), "\n", httpResponse.statusCode, JSON(responseJson as Any), "\n", error?.localizedDescription)
 
             completionHandler(httpResponse, data, error)
 

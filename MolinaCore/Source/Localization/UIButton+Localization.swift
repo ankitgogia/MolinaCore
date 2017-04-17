@@ -12,7 +12,7 @@ import ObjectiveC
 
 private var localizationKey: UInt8 = 4
 
-extension UIButton {
+public extension UIButton {
     /// Localization Key used to reference the unique translation and text required.
     @IBInspectable
     public var LocalizeKey: String? {

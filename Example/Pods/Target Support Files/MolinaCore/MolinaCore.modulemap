@@ -1,0 +1,6 @@
+framework module MolinaCore {
+  umbrella header "MolinaCore-umbrella.h"
+
+  export *
+  module * { export * }
+}

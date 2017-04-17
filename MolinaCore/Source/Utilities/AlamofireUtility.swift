@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class AlamofireUtility: Alamofire.SessionDelegate, IHTTPUtility {
+open class AlamofireUtility: Alamofire.SessionDelegate, IHTTPUtility {
     
 //    fileprivate let defaultParameterEncoding: ParameterEncoding = JSONEncoding.default
     fileprivate let configuration: URLSessionConfiguration

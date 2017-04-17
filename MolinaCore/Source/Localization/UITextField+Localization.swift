@@ -12,7 +12,7 @@ import ObjectiveC
 
 private var localizationKey: UInt8 = 3
 
-extension UITextField {
+public extension UITextField {
     /// Localization Key used to reference the unique translation and text required.
     @IBInspectable
     public var LocalizeKey: String? {

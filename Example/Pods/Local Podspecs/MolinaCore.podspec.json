@@ -1,7 +1,7 @@
 {
   "name": "MolinaCore",
-  "version": "0.1.0",
-  "summary": "A short description of MolinaCore.",
+  "version": "0.1.5",
+  "summary": "MolinaCore.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/jjjjaren/MolinaCore",
   "license": {
@@ -13,10 +13,21 @@
   },
   "source": {
     "git": "https://github.com/jjjjaren/MolinaCore.git",
-    "tag": "0.1.0"
+    "tag": "0.1.5"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "MolinaCore/Classes/**/*"
+  "source_files": "MolinaCore/Source/**/*",
+  "dependencies": {
+    "Alamofire": [
+      "~> 4.0"
+    ],
+    "CoreStore": [
+      "~> 3.0"
+    ],
+    "ObjectMapper": [
+      "~> 2.0"
+    ]
+  }
 }

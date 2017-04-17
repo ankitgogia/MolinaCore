@@ -12,7 +12,7 @@ import ObjectiveC
 
 private var localizationKey: UInt8 = 2
 
-extension UIBarItem {
+public extension UIBarItem {
     /// Localization Key used to reference the unique translation and text required.
     @IBInspectable
     public var LocalizeKey: String? {

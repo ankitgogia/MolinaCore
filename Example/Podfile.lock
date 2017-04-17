@@ -1,5 +1,11 @@
 PODS:
-  - MolinaCore (0.1.0)
+  - Alamofire (4.4.0)
+  - CoreStore (3.1.0)
+  - MolinaCore (0.1.5):
+    - Alamofire (~> 4.0)
+    - CoreStore (~> 3.0)
+    - ObjectMapper (~> 2.0)
+  - ObjectMapper (2.2.5)
 
 DEPENDENCIES:
   - MolinaCore (from `../`)
@@ -9,7 +15,10 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  MolinaCore: fc9991517e1d6208387e0911a99d7be3d10cb041
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  CoreStore: 30b67eaf4204f33facd2b5605366ed684ad446b4
+  MolinaCore: 904ee8131c481ac7f05d6dc667ecb2e4ffdd644f
+  ObjectMapper: fb30f71e08470d1e5a20b199fafe1246281db898
 
 PODFILE CHECKSUM: bbd14dacc9d6819a3312d9a4e95927eaaa5fb485
 

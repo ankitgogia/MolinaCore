@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UIBarButtonItem {
+public extension UIBarButtonItem {
     /**
      Update UIBarButtonItem localization conditional on if title parameter has been set
      */

@@ -16,11 +16,11 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		A230F681B4D114854380622A /* Pods-MolinaCore_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MolinaCore_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MolinaCore_Tests/Pods-MolinaCore_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		B875EA176537CB61A7FB29C7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		C1830D5AF0E0EBF52D6EAC06 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		B875EA176537CB61A7FB29C7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		C1830D5AF0E0EBF52D6EAC06 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		DD162F5AF438A319E0F7D674 /* Pods-MolinaCore_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MolinaCore_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MolinaCore_Tests/Pods-MolinaCore_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		EF2A6179F4E07A19F9858DAD /* Pods_MolinaCore_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MolinaCore_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1F3146EFA526F9763DDF429 /* MolinaCore.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = MolinaCore.podspec; path = ../MolinaCore.podspec; sourceTree = "<group>"; };
+		F1F3146EFA526F9763DDF429 /* MolinaCore.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MolinaCore.podspec; path = ../MolinaCore.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,12 +131,9 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
-					607FACCF1AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0820;
-					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 4722GN9HC7;
 						LastSwiftMigration = 0820;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -321,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A230F681B4D114854380622A /* Pods-MolinaCore_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 4722GN9HC7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -341,6 +339,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DD162F5AF438A319E0F7D674 /* Pods-MolinaCore_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 4722GN9HC7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

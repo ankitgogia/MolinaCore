@@ -12,7 +12,7 @@ import ObjectiveC
 
 private var localizationKey: UInt8 = 0
 
-extension UILabel {
+public extension UILabel {
     
     /// Localization Key used to reference the unique translation and text required.
     @IBInspectable

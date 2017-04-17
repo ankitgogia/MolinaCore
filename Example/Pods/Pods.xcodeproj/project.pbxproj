@@ -29,6 +29,11 @@
 		0CC33FB8E5BA4E7571AB6787F160D086 /* Pods-MolinaCore_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MolinaCore_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		13BE3B8B4F4ABB86BE30A063A6EA26CE /* Pods-MolinaCore_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MolinaCore_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		435E7B147F53D1DB4FCDB8A53CF59E0F /* Pods-MolinaCore_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MolinaCore_Tests.modulemap"; sourceTree = "<group>"; };
+		553163D81EA5776C00108D5D /* UIBarButtonItem+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Localization.swift"; sourceTree = "<group>"; };
+		553163D91EA5776C00108D5D /* UIBarItem+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarItem+Localization.swift"; sourceTree = "<group>"; };
+		553163DA1EA5776C00108D5D /* UIButton+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Localization.swift"; sourceTree = "<group>"; };
+		553163DB1EA5776C00108D5D /* UILabel+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Localization.swift"; sourceTree = "<group>"; };
+		553163DC1EA5776C00108D5D /* UITextField+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Localization.swift"; sourceTree = "<group>"; };
 		55375E9C1E8CAF7D00194987 /* Fade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fade.swift; sourceTree = "<group>"; };
 		55375E9E1E8CAF7D00194987 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		55375E9F1E8CAF7D00194987 /* NetworkAccessParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAccessParameterEncoding.swift; sourceTree = "<group>"; };
@@ -121,6 +126,19 @@
 				8B333C9FF011618DCEFA14237BC5310E /* Classes */,
 			);
 			path = MolinaCore;
+			sourceTree = "<group>";
+		};
+		553163D71EA5776C00108D5D /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				553163D81EA5776C00108D5D /* UIBarButtonItem+Localization.swift */,
+				553163D91EA5776C00108D5D /* UIBarItem+Localization.swift */,
+				553163DA1EA5776C00108D5D /* UIButton+Localization.swift */,
+				553163DB1EA5776C00108D5D /* UILabel+Localization.swift */,
+				553163DC1EA5776C00108D5D /* UITextField+Localization.swift */,
+			);
+			name = Localization;
+			path = ../Source/Localization;
 			sourceTree = "<group>";
 		};
 		55375E9B1E8CAF7D00194987 /* Animations */ = {
@@ -275,6 +293,7 @@
 				55375E9B1E8CAF7D00194987 /* Animations */,
 				55375E9D1E8CAF7D00194987 /* Enumerations */,
 				55375EA21E8CAF7D00194987 /* Extensions */,
+				553163D71EA5776C00108D5D /* Localization */,
 				55375EBA1E8CAF7D00194987 /* Protocols */,
 				55375EC11E8CAF7D00194987 /* UserDefaults */,
 				55375EC41E8CAF7D00194987 /* Utilities */,

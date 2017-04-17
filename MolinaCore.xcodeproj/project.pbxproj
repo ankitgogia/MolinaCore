@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		553163E41EA577EE00108D5D /* UIBarButtonItem+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553163DF1EA577EE00108D5D /* UIBarButtonItem+Localization.swift */; };
+		553163E51EA577EE00108D5D /* UIBarItem+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553163E01EA577EE00108D5D /* UIBarItem+Localization.swift */; };
+		553163E61EA577EE00108D5D /* UIButton+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553163E11EA577EE00108D5D /* UIButton+Localization.swift */; };
+		553163E71EA577EE00108D5D /* UILabel+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553163E21EA577EE00108D5D /* UILabel+Localization.swift */; };
+		553163E81EA577EE00108D5D /* UITextField+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553163E31EA577EE00108D5D /* UITextField+Localization.swift */; };
+		553163EA1EA5780A00108D5D /* AlamofireUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553163E91EA5780A00108D5D /* AlamofireUtility.swift */; };
 		5585DFCB1E9322F8001645D1 /* MolinaCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 5585DFC91E9322F8001645D1 /* MolinaCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5585E0091E932353001645D1 /* Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5585DFD31E932353001645D1 /* Fade.swift */; };
 		5585E00A1E932353001645D1 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5585DFD51E932353001645D1 /* Environment.swift */; };
@@ -59,6 +65,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		553163DF1EA577EE00108D5D /* UIBarButtonItem+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Localization.swift"; sourceTree = "<group>"; };
+		553163E01EA577EE00108D5D /* UIBarItem+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarItem+Localization.swift"; sourceTree = "<group>"; };
+		553163E11EA577EE00108D5D /* UIButton+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Localization.swift"; sourceTree = "<group>"; };
+		553163E21EA577EE00108D5D /* UILabel+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Localization.swift"; sourceTree = "<group>"; };
+		553163E31EA577EE00108D5D /* UITextField+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Localization.swift"; sourceTree = "<group>"; };
+		553163E91EA5780A00108D5D /* AlamofireUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireUtility.swift; sourceTree = "<group>"; };
 		5585DFC61E9322F8001645D1 /* MolinaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MolinaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5585DFC91E9322F8001645D1 /* MolinaCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MolinaCore.h; sourceTree = "<group>"; };
 		5585DFCA1E9322F8001645D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,6 +135,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		553163DE1EA577EE00108D5D /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				553163DF1EA577EE00108D5D /* UIBarButtonItem+Localization.swift */,
+				553163E01EA577EE00108D5D /* UIBarItem+Localization.swift */,
+				553163E11EA577EE00108D5D /* UIButton+Localization.swift */,
+				553163E21EA577EE00108D5D /* UILabel+Localization.swift */,
+				553163E31EA577EE00108D5D /* UITextField+Localization.swift */,
+			);
+			name = Localization;
+			path = Source/Localization;
+			sourceTree = "<group>";
+		};
 		5585DFBC1E9322F8001645D1 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +181,7 @@
 				5585DFD21E932353001645D1 /* Animations */,
 				5585DFD41E932353001645D1 /* Enumerations */,
 				5585DFD91E932353001645D1 /* Extensions */,
+				553163DE1EA577EE00108D5D /* Localization */,
 				5585DFF11E932353001645D1 /* Protocols */,
 				5585DFF81E932353001645D1 /* UserDefaults */,
 				5585DFFB1E932353001645D1 /* Utilities */,
@@ -244,6 +270,7 @@
 		5585DFFB1E932353001645D1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				553163E91EA5780A00108D5D /* AlamofireUtility.swift */,
 				5585DFFC1E932353001645D1 /* CoreDataAccessUtility.swift */,
 				5585DFFD1E932353001645D1 /* HTTPUtility.swift */,
 				5585DFFE1E932353001645D1 /* LogUtility.swift */,
@@ -361,21 +388,27 @@
 				5585E0281E932353001645D1 /* IDataAccess.swift in Sources */,
 				5585E0201E932353001645D1 /* UIApplication.swift in Sources */,
 				5585E0151E932353001645D1 /* NSData.swift in Sources */,
+				553163E71EA577EE00108D5D /* UILabel+Localization.swift in Sources */,
 				5585E0331E932353001645D1 /* MolinaViewController.swift in Sources */,
 				5585E00C1E932353001645D1 /* Response.swift in Sources */,
 				5585E02F1E932353001645D1 /* LogUtility.swift in Sources */,
 				5585E0141E932353001645D1 /* MKMapKit+Extensions.swift in Sources */,
 				5585E01E1E932353001645D1 /* SwiftyJSON.swift in Sources */,
 				5585E01C1E932353001645D1 /* SFSafariViewController+Extensions.swift in Sources */,
+				553163E81EA577EE00108D5D /* UITextField+Localization.swift in Sources */,
+				553163E41EA577EE00108D5D /* UIBarButtonItem+Localization.swift in Sources */,
 				5585E0231E932353001645D1 /* UIImage.swift in Sources */,
 				5585E01A1E932353001645D1 /* NSObject.swift in Sources */,
 				5585E00B1E932353001645D1 /* NetworkAccessParameterEncoding.swift in Sources */,
 				5585E0341E932353001645D1 /* UIViewController.swift in Sources */,
+				553163E61EA577EE00108D5D /* UIButton+Localization.swift in Sources */,
 				5585E0161E932353001645D1 /* NSDate.swift in Sources */,
 				5585E0131E932353001645D1 /* LocalizedString.swift in Sources */,
+				553163E51EA577EE00108D5D /* UIBarItem+Localization.swift in Sources */,
 				5585E0301E932353001645D1 /* MockHTTPUtility.swift in Sources */,
 				5585E02C1E932353001645D1 /* UserPreferences.swift in Sources */,
 				5585E01F1E932353001645D1 /* UIAlertController.swift in Sources */,
+				553163EA1EA5780A00108D5D /* AlamofireUtility.swift in Sources */,
 				5585E00D1E932353001645D1 /* USState.swift in Sources */,
 				5585E0101E932353001645D1 /* DispatchQueue.swift in Sources */,
 				5585E0191E932353001645D1 /* NSManagedObject.swift in Sources */,

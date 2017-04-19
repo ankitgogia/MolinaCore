@@ -11,8 +11,15 @@ import UIKit
 
 private var validationKey: UInt8 = 10
 
-public extension UITextField {
-
+extension UITextField {
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        self.removeTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        self.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+    }
+    
+    
     @IBInspectable
     public var ValidationFormat: String? {
         get {
@@ -31,6 +38,8 @@ public extension UITextField {
     }
     
     public var isValid: Bool { return validate() }
+    
+    public func textFieldDidChange(_ textField: UITextField) {}
     
 
 }

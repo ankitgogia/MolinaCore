@@ -157,6 +157,7 @@ extension String {
     }
     
     /// Email Validation
+    @available(*, deprecated: 10.0, message: "Use isValidEmailAddress")
     public func isValidEmail() -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         let result = self.test(pattern: emailRegEx)
@@ -164,6 +165,7 @@ extension String {
     }
     
     /// ZipCode Validation
+    @available(*, deprecated: 10.0, message: "Use isValidZipCode")
     public func isValidZipcode() -> Bool {
         let zipcodeRegEx = "^\\d{5}$"
         let result = self.test(pattern: zipcodeRegEx)

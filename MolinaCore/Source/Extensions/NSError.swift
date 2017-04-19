@@ -10,4 +10,6 @@ import Foundation
 
 extension Error {
     public var summary: String { return "\(_domain) (\(_code))" }
+    public var code: Int { return _code }
+    public var domain: String { return _domain }
 }

@@ -11,7 +11,6 @@ import Alamofire
 
 open class AlamofireUtility: Alamofire.SessionDelegate, IHTTPUtility {
     
-//    fileprivate let defaultParameterEncoding: ParameterEncoding = JSONEncoding.default
     fileprivate let configuration: URLSessionConfiguration
     fileprivate let serverTrustPolicyManager: ServerTrustPolicyManager?
     fileprivate let log: ILogUtility
@@ -29,8 +28,8 @@ open class AlamofireUtility: Alamofire.SessionDelegate, IHTTPUtility {
         let configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
         configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
-//        configuration.timeoutIntervalForRequest = 300 // seconds
-//        configuration.timeoutIntervalForResource = 300 // seconds
+        configuration.timeoutIntervalForRequest = 30 // seconds
+        configuration.timeoutIntervalForResource = 30 // seconds
         self.configuration = configuration
         
         // Server Trust Policies

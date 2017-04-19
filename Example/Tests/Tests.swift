@@ -14,9 +14,31 @@ class Tests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testStringValidatorEmailAddressFormat() {
         // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+        
+        
+        XCTAssertFalse("".isValidEmailAddress)
+        XCTAssertFalse("jjjjaren".isValidEmailAddress)
+        XCTAssertFalse("jjjjaren@".isValidEmailAddress)
+        XCTAssertFalse("jjjjaren@gmail".isValidEmailAddress)
+        XCTAssertFalse("jjjjaren@gmail.".isValidEmailAddress)
+        XCTAssertTrue("jjjjaren@gmail.com".isValidEmailAddress)
+        
+    }
+    
+    func testStringValidatorFiveDigitZipCodeFormat() {
+        // This is an example of a functional test case.
+        
+        
+        XCTAssertFalse("".isValidZipCode5)
+        XCTAssertFalse("1".isValidZipCode5)
+        XCTAssertFalse("12".isValidZipCode5)
+        XCTAssertFalse("123".isValidZipCode5)
+        XCTAssertFalse("1234".isValidZipCode5)
+        XCTAssertTrue("12345".isValidZipCode5)
+        XCTAssertFalse("123456".isValidZipCode5)
+        
     }
     
     func testPerformanceExample() {

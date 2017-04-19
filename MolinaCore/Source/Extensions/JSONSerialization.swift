@@ -9,12 +9,14 @@
 import Foundation
 
 public protocol JSONRepresentable {
-    var JSONRepresentation: Any { get }
+    var JSONRepresentation: [String: Any] { get }
 }
+
 public protocol JSONSerializable: JSONRepresentable {}
 
 extension JSONSerializable {
-    public var JSONRepresentation: Any {
+    
+    public var JSONRepresentation: [String: Any] {
         var representation = [String: Any]()
 
         for case let (label?, value) in Mirror(reflecting: self).children {
@@ -30,11 +32,17 @@ extension JSONSerializable {
                 break
             }
         }
-
         return representation
     }
-    public func toJSONString() -> String? {
-        let representation = JSONRepresentation
+    
+    
+    
+    public var jsonDictionary: [String: Any] { return JSONRepresentation }
+    
+    public var json: Any { return jsonDictionary as Any }
+    
+    public var jsonString: String? {
+        let representation = jsonDictionary
         guard JSONSerialization.isValidJSONObject(representation) else { return nil }
         do {
             let data = try JSONSerialization.data(withJSONObject: representation, options: [])
@@ -43,8 +51,17 @@ extension JSONSerializable {
             return nil
         }
     }
+}
 
-    public func toJSONObject() -> Any {
-        return JSONRepresentation
-    }
+
+
+// MARK: - Deprecated Methods and Properties
+
+extension JSONSerializable {
+    
+    @available(*, deprecated: 10.0, message: "Use jsonDictionary or json")
+    public func toJSONObject() -> Any { return jsonDictionary }
+    
+    @available(*, deprecated: 10.0, message: "Use jsonString")
+    public func toJSONString() -> String? { return jsonString }
 }

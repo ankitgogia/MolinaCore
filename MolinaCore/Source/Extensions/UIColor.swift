@@ -20,7 +20,7 @@ public extension UIColor {
         :returns: UIColor from hex string
     */
 
-    public convenience init(hexString:String) {
+    public convenience init(hexString: String) {
         let hexString:NSString = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) as NSString
         let scanner            = Scanner(string: hexString as String)
 

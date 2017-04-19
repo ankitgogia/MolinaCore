@@ -14,76 +14,73 @@ open class HTTPUtility: IHTTPUtility {
 
     open var delegate: IHTTPUtilityDelegate? = nil
 
+    public let timeoutInterval: TimeInterval
     public var session: URLSession
 
-    public init(session: URLSession = URLSession.shared) {
+    public init(session: URLSession = URLSession.shared, timeoutInterval: TimeInterval = 60.0) {
         self.session = session
+        self.timeoutInterval = timeoutInterval
     }
-    
-    fileprivate func addHeaders(to request: URLRequest, headers: [String: String?]?) -> URLRequest {
-        var request = request
+
+    @discardableResult
+    fileprivate func requestHandler(url: URL, method: String, data: Any?, headers: [String: String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
+        delegate?.httpUtilityActivityDidBegin(self)
+
+        var request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: self.timeoutInterval)
+        request.httpMethod = method
+
         if let headers = headers {
             for (key, value) in headers {
                 request.setValue(value, forHTTPHeaderField: key)
             }
         }
-        return request
-    }
-    
-    fileprivate func addData(to request: URLRequest, data: Any?) -> URLRequest {
-        var request = request
-        if let parameters = data as? [String: Any] {
-            request.httpBody = Data(JSONObject: parameters as AnyObject)
-        }
-        return request
-    }
 
-    fileprivate func requestHandler(request: URLRequest, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        delegate?.httpUtilityActivityDidBegin(self)
-        let task = session.dataTask(with: request) { data, response, error in
-            DispatchQueue.main.async {
-                self.delegate?.httpUtilityActivityDidEnd(self)
-                let httpResponse = response as? HTTPURLResponse ?? HTTPURLResponse()
-                completionHandler(httpResponse, data, error)
-            }
+        if let parameters = data as? [String: Any] {
+            request.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
         }
+
+        log.debug(url, method, "\n", JSON(headers as Any), "\n", JSON(data as Any))
+
+        let task = self.session.dataTask(with: request) { data, response, error in
+
+            self.delegate?.httpUtilityActivityDidEnd(self)
+            let httpResponse = response as? HTTPURLResponse ?? HTTPURLResponse()
+
+            let responseJson: Any? = {
+                if let data = data {
+                    return try? JSONSerialization.jsonObject(with: data)
+                }
+                return nil
+            }()
+
+            log.debug(url, method, "\n", JSON(headers as Any), "\n", JSON(data as Any), "\n", httpResponse.statusCode, JSON(responseJson as Any), "\n", error?.localizedDescription)
+
+            completionHandler(httpResponse, data, error)
+
+        }
+
         task.resume()
         return request
     }
 
+    @discardableResult
     open func post(_ url: URL, data: Any?, headers: [String: String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        // Create the url and the request
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request = addHeaders(to: request, headers: headers)
-        request = addData(to: request, data: data)
-        return requestHandler(request: request, completionHandler: completionHandler)
+        return requestHandler(url: url, method: "POST", data: data, headers: headers, completionHandler: completionHandler)
     }
 
+    @discardableResult
     open func put(_ url: URL, data: Any?, headers: [String: String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        // Create the url and the request
-        var request = URLRequest(url: url)
-        request.httpMethod = "PUT"
-        request = addHeaders(to: request, headers: headers)
-        request = addData(to: request, data: data)
-        return requestHandler(request: request, completionHandler: completionHandler)
+        return requestHandler(url: url, method: "PUT", data: data, headers: headers, completionHandler: completionHandler)
     }
 
+    @discardableResult
     open func get(_ url: URL, data: Any?, headers: [String:String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        // Create the url and request
-        var request = URLRequest(url: url)
-        request = addHeaders(to: request, headers: headers)
-        request = addData(to: request, data: data)
-        return requestHandler(request: request, completionHandler: completionHandler)
+        return requestHandler(url: url, method: "GET", data: data, headers: headers, completionHandler: completionHandler)
     }
 
+    @discardableResult
     open func delete(_ url: URL, data: Any?, headers: [String:String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-
-        var request = URLRequest(url: url)
-        request.httpMethod = "DELETE"
-        request = addHeaders(to: request, headers: headers)
-        request = addData(to: request, data: data)
-        return requestHandler(request: request, completionHandler: completionHandler)
+        return requestHandler(url: url, method: "DELETE", data: data, headers: headers, completionHandler: completionHandler)
     }
 
     // MARK: - URLSessionDelegate

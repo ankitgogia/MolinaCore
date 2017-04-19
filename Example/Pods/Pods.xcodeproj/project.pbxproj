@@ -89,6 +89,7 @@
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2D1CDA48973A0945A5FA1E09D70193 /* Request.swift */; };
 		53F24FCEDCB2C3070A6F0B3E85C51726 /* SetupResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4971303578D5C8CA74F9E0256D6804 /* SetupResult.swift */; };
 		55EB62C41EA6EB9800C5AFBC /* StringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB62C31EA6EB9800C5AFBC /* StringValidator.swift */; };
+		55EB62C61EA6F7A900C5AFBC /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB62C51EA6F7A900C5AFBC /* UITextField+Extensions.swift */; };
 		585D33822C379BC0AABAAE57AA70332B /* DarkUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4262E892D3271D8B364C69006FEE57 /* DarkUI.swift */; };
 		590A8BF18BC93FFA727C2D5266A2C97C /* TouchIdUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DADABC348DD4C9F5CD56CAE63D44BA3 /* TouchIdUtility.swift */; };
 		591681A3E9294D8D6FE00D02717185A4 /* NotificationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0C2129162D159A4A38338B9F091223 /* NotificationObserver.swift */; };
@@ -366,6 +367,7 @@
 		54BEBCDA6927AFD51968E9F344AB9A65 /* CoreStoreQueryableAttributeType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreStoreQueryableAttributeType.swift; path = "Sources/Fetching and Querying/CoreStoreQueryableAttributeType.swift"; sourceTree = "<group>"; };
 		5527B83C1BCAA97E3A1062A551DB396F /* NSPersistentStoreCoordinator+Setup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSPersistentStoreCoordinator+Setup.swift"; path = "Sources/Internal/NSPersistentStoreCoordinator+Setup.swift"; sourceTree = "<group>"; };
 		55EB62C31EA6EB9800C5AFBC /* StringValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringValidator.swift; sourceTree = "<group>"; };
+		55EB62C51EA6F7A900C5AFBC /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		56BEA2F17373E7C8DF8BBFCEACA36835 /* CoreStore+Querying.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CoreStore+Querying.swift"; path = "Sources/Fetching and Querying/CoreStore+Querying.swift"; sourceTree = "<group>"; };
 		57666347C964F6779DC43EDDAA2B788A /* IHTTPUtility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IHTTPUtility.swift; sourceTree = "<group>"; };
 		57CDA7236B241090FF4DB703E733DDE9 /* NSManagedObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 			isa = PBXGroup;
 			children = (
 				7DA8E1A8BDE8BDDDEFFE6681FC428461 /* LinkableTextView.swift */,
+				55EB62C51EA6F7A900C5AFBC /* UITextField+Extensions.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1325,6 +1328,7 @@
 				F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */,
 				7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */,
 				62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */,
+				55EB62C61EA6F7A900C5AFBC /* UITextField+Extensions.swift in Sources */,
 				7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */,
 				AE1EF48399533730D0066E04B22CA2D6 /* SessionManager.swift in Sources */,
 				3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */,

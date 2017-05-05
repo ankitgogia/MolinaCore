@@ -20,7 +20,7 @@ open class AlamofireUtility: Alamofire.SessionDelegate, IHTTPUtility {
         return Alamofire.SessionManager(configuration: self.configuration, delegate: self, serverTrustPolicyManager: self.serverTrustPolicyManager)
     }()
     
-    public init(serverTrustPolicies: [String: ServerTrustPolicy]? = nil, logger: ILogUtility = LogUtility.shared) {
+    public init(timeoutIntervalForRequest: TimeInterval = 30, serverTrustPolicies: [String: ServerTrustPolicy]? = nil, logger: ILogUtility = LogUtility.shared) {
         
         self.log = logger
         
@@ -28,8 +28,7 @@ open class AlamofireUtility: Alamofire.SessionDelegate, IHTTPUtility {
         let configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
         configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
-        configuration.timeoutIntervalForRequest = 30 // seconds
-        configuration.timeoutIntervalForResource = 30 // seconds
+        configuration.timeoutIntervalForRequest = timeoutIntervalForRequest // seconds
         self.configuration = configuration
         
         // Server Trust Policies

@@ -80,7 +80,6 @@
 		4C91FF6BD47ADCCF1A602B18839D3CF4 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDA7236B241090FF4DB703E733DDE9 /* NSManagedObject.swift */; };
 		4ED789A8F7B7A325AF23C9176808895D /* HexColorTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1E8B88C855E8FC3B290373EECF4ADF /* HexColorTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4F525BCEE0794B1ECDDB4F544B37049D /* SQLiteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023B086CB29E279FF259E4AA96C6A379 /* SQLiteStore.swift */; };
-		4FC357443568A4851B53F311A4D1D940 /* IApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647B26331757D561AE5D582621C05EAB /* IApi.swift */; };
 		5140153F0BF100AD0E7BDC276E5B8AED /* CSCoreStore+Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC88CC5C3E9AF18926A6AF1FD08CD286 /* CSCoreStore+Transaction.swift */; };
 		5161731192EC831DF99E72CCC683A0E1 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAA241DCCFBE31A6A522C68473F401B /* UIImage.swift */; };
 		517DF82311464F7D293732F4ADE69B2A /* CSListObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28B68F244E6A96673CAB4E2C19F9266 /* CSListObserver.swift */; };
@@ -166,7 +165,6 @@
 		A18CC6CE41E0300621D340EA750109D3 /* CoreStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E27429B08F3604BD492DF189BA1D1B /* CoreStoreError.swift */; };
 		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84882FEE1B6A235BD4783C74772DC8 /* NetworkReachabilityManager.swift */; };
 		A39EC38B06695DCD93B9CC6611198095 /* ListObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EDA3A331058925228CEABC774136CD /* ListObserver.swift */; };
-		A5B3408F119766FA23B27038CD6D6A44 /* IApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEB6A007375194D553473B2BA04535 /* IApp.swift */; };
 		A89EC6808A7FC476E8411B59B4DC33D7 /* CoreStore+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC50C80CFE135ADF87E4FA7B15290C3 /* CoreStore+Setup.swift */; };
 		A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E2459C5369585EA93A760284F1715B /* Alamofire-dummy.m */; };
 		AA037B4CA998A222222F6F94671E834F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E45B3741D0D376F59C13D98DF227CD /* CoreData.framework */; };
@@ -391,7 +389,6 @@
 		62C1A91A86058ED4B215F6294CA166E7 /* NSManagedObject+Logging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSManagedObject+Logging.swift"; path = "Sources/Internal/NSManagedObject+Logging.swift"; sourceTree = "<group>"; };
 		63A8671B37798131E9F955923BF81AC8 /* UILabel+Localization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UILabel+Localization.swift"; sourceTree = "<group>"; };
 		63E9D16A68231F49727CE0EB68558789 /* DataStack+Querying.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DataStack+Querying.swift"; path = "Sources/Fetching and Querying/DataStack+Querying.swift"; sourceTree = "<group>"; };
-		647B26331757D561AE5D582621C05EAB /* IApi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IApi.swift; sourceTree = "<group>"; };
 		6643615EB0C06F6E911A75847D67BC2B /* NSManagedObjectContext+ObjectiveC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSManagedObjectContext+ObjectiveC.swift"; path = "Sources/ObjectiveC/NSManagedObjectContext+ObjectiveC.swift"; sourceTree = "<group>"; };
 		68E85BED565687016AB66F826760AAAB /* NetworkAccessParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NetworkAccessParameterEncoding.swift; sourceTree = "<group>"; };
 		692A02E50B84838FDC8E7975CB46F68D /* AppPreferences.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
@@ -492,7 +489,6 @@
 		BD01F663C3B5EC0EED321B9104ACC39F /* USState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = USState.swift; sourceTree = "<group>"; };
 		BF14EC02AD9F1B8033F14BD08823B889 /* UITextField+Localization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITextField+Localization.swift"; sourceTree = "<group>"; };
 		C044C6D4B1B0B45C65FC81B2BD735302 /* CoreStoreFetchRequest+CoreStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CoreStoreFetchRequest+CoreStore.swift"; path = "Sources/Internal/CoreStoreFetchRequest+CoreStore.swift"; sourceTree = "<group>"; };
-		C0EEB6A007375194D553473B2BA04535 /* IApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IApp.swift; sourceTree = "<group>"; };
 		C1A777041E0141BF86CE3FAE7C316BD3 /* NSDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		C63A01C677BFDB152CBA4539F9AB0BCF /* Environment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		C838DC0CF092402CB6B588E323BAF712 /* CSMigrationResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CSMigrationResult.swift; path = Sources/ObjectiveC/CSMigrationResult.swift; sourceTree = "<group>"; };
@@ -728,8 +724,6 @@
 		5E38255D7D5473F13498DAE205C1A095 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				647B26331757D561AE5D582621C05EAB /* IApi.swift */,
-				C0EEB6A007375194D553473B2BA04535 /* IApp.swift */,
 				186BBD8F883D541448020DC654940214 /* ICoreDataAccess.swift */,
 				880C31E2677C597617498BFC72431D92 /* IDataAccess.swift */,
 				57666347C964F6779DC43EDDAA2B788A /* IHTTPUtility.swift */,
@@ -1265,8 +1259,6 @@
 				BC30D15A0B30DD9DB1BDC94B90C50E46 /* Environment.swift in Sources */,
 				7B20334C0C852026E67048E226D813CD /* Fade.swift in Sources */,
 				05976CE440A32B6DA3169CB5E60C9C90 /* HTTPUtility.swift in Sources */,
-				4FC357443568A4851B53F311A4D1D940 /* IApi.swift in Sources */,
-				A5B3408F119766FA23B27038CD6D6A44 /* IApp.swift in Sources */,
 				66E2825F078582A9A062B35F28C0E5B7 /* ICoreDataAccess.swift in Sources */,
 				BB71E3A85FD47C433B17E1560DBBECEF /* IDataAccess.swift in Sources */,
 				0FFDFECAC9103C58CA689AF53E68F5C8 /* IHTTPUtility.swift in Sources */,

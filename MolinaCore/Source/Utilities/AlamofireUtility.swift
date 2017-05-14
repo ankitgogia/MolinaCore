@@ -82,7 +82,11 @@ open class AlamofireUtility: Alamofire.SessionDelegate, IHTTPUtility {
         delegate?.httpUtilityActivityDidBegin(self)
         
         let parameters: Parameters? = data as? Parameters
-        let httpHeaders: HTTPHeaders = headers as? HTTPHeaders ?? HTTPHeaders()
+        
+        var httpHeaders: HTTPHeaders = [:]
+        delegate?.defaultHeaders().forEach { (key, value) in httpHeaders[key] = value }
+        headers?.forEach { (key, value) in httpHeaders[key] = value }
+
         
         var alamofireParameterEncoding: ParameterEncoding = JSONEncoding.default
         if method == HTTPMethod.get {

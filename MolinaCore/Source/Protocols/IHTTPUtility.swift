@@ -14,12 +14,14 @@ public protocol IHTTPUtilityDelegate: class {
     func httpUtilityActivityDidBegin(_ httpUtility: IHTTPUtility)
     func httpUtilityActivityDidEnd(_ httpUtility: IHTTPUtility)
     func httpUtilityRequestDidComplete(_ httpUtility: IHTTPUtility, withStatus statusCode: Int)
+    func defaultHeaders() -> [String: String?]
 }
 
 extension IHTTPUtilityDelegate {
     func httpUtilityActivityDidBegin(_ httpUtility: IHTTPUtility) {}
     func httpUtilityActivityDidEnd(_ httpUtility: IHTTPUtility) {}
     func httpUtilityRequestDidComplete(_ httpUtility: IHTTPUtility, withStatus statusCode: Int) {}
+    func defaultHeaders() -> [String: String?] { return [:] }
 }
 
 public protocol IHTTPUtility: class {
@@ -65,18 +67,22 @@ public protocol IHTTPUtility: class {
 
 extension IHTTPUtility {
 
+    @discardableResult
     public func get(_ url: URL, data: Any? = nil, headers: [String :String?]? = nil, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
         return get(url, data: data, headers: headers, completionHandler: completionHandler)
     }
 
+    @discardableResult
     public func post(_ url: URL, data: Any? = nil, headers: [String :String?]? = nil, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
         return post(url, data: data, headers: headers, completionHandler: completionHandler)
     }
 
+    @discardableResult
     public func put(_ url: URL, data: Any? = nil, headers: [String :String?]? = nil, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
         return put(url, data: data, headers: headers, completionHandler: completionHandler)
     }
 
+    @discardableResult
     public func delete(_ url: URL, data: Any? = nil, headers: [String :String?]? = nil, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
         return delete(url, data: data, headers: headers, completionHandler: completionHandler)
     }

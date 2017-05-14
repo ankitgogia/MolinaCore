@@ -37,50 +37,31 @@ open class MockHTTPUtility: IHTTPUtility {
     
     // MARK: - Helpers
 
-    private func sendMockRequest(_ url: URL, data: Any?, headers: [String : String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
+    @discardableResult
+    public func request(method: String, url: URL, data: Any?, headers: [String : String?]?, completion: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
         delegate?.httpUtilityActivityDidBegin(self)
-        
+
         let request = URLRequest(url: url)
-        
+
         DispatchQueue.global().asyncAfter(seconds: delayDuration) {
-            
+
             DispatchQueue.main.sync {
-                
+
                 if self.useDefaultResponses {
                     let httpResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)!
                     let data = self.cache[url] ?? Data()
-                    completionHandler(httpResponse, data, nil)
+                    completion(httpResponse, data, nil)
                 } else {
-                    completionHandler(self.httpResponse, self.data, self.error)
+                    completion(self.httpResponse, self.data, self.error)
                 }
                 self.delegate?.httpUtilityActivityDidEnd(self)
             }
-            
-            
+
+
         }
         return request
     }
-    
-    
-    
-    // MARK: - IHTTPUtility
-    
-    public func get(_ url: URL, data: Any?, headers: [String : String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return sendMockRequest(url, data: data, headers: headers, completionHandler: completionHandler)
-    }
-
-    public func put(_ url: URL, data: Any?, headers: [String : String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return sendMockRequest(url, data: data, headers: headers, completionHandler: completionHandler)
-    }
-    
-    public func post(_ url: URL, data: Any?, headers: [String : String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return sendMockRequest(url, data: data, headers: headers, completionHandler: completionHandler)
-    }
-    
-    public func delete(_ url: URL, data: Any?, headers: [String : String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return sendMockRequest(url, data: data, headers: headers, completionHandler: completionHandler)
-    }
-    
+        
     
     // MARK: - Additional Public Interface
 

@@ -10,6 +10,53 @@ import Foundation
 import Alamofire
 
 open class AlamofireUtility: Alamofire.SessionDelegate, IHTTPUtility {
+
+    @discardableResult
+    public func request(method: String, url: URL, data: Any?, headers: [String : String?]?, completion: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
+
+        let method = HTTPMethod(rawValue: method) ?? .get
+
+        let parameterEncoding: HTTPUtilityParameterEncoding? = HTTPUtilityParameterEncoding.json
+
+        delegate?.httpUtilityActivityDidBegin(self)
+
+        let parameters: Parameters? = data as? Parameters
+
+        var httpHeaders: HTTPHeaders = [:]
+        delegate?.defaultHeaders().forEach { (key, value) in httpHeaders[key] = value }
+        headers?.forEach { (key, value) in httpHeaders[key] = value }
+
+        var alamofireParameterEncoding: ParameterEncoding = JSONEncoding.default
+        if method == HTTPMethod.get {
+            alamofireParameterEncoding = URLEncoding.default
+        } else if let parameterEncoding = parameterEncoding {
+            alamofireParameterEncoding = parameterEncoding == HTTPUtilityParameterEncoding.url ? URLEncoding.queryString : JSONEncoding.default
+        }
+
+        log.debug(method, parameterEncoding, url, data)
+
+        let request = sessionManager.request(url, method: method, parameters: parameters, encoding: alamofireParameterEncoding, headers: httpHeaders)
+            .responseJSON { response in
+
+                self.delegate?.httpUtilityActivityDidEnd(self)
+                let httpResponse = response.response ?? HTTPURLResponse()
+
+                self.logResponseDetails(url: url, method: method, data: data, headers: headers, response: response)
+
+                completion(httpResponse, response.data, response.result.error)
+                self.delegate?.httpUtilityRequestDidComplete(self, withStatus: httpResponse.statusCode)
+
+
+        }
+
+        var urlRequest: URLRequest! = request.request
+        if urlRequest == nil {
+            urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = method.rawValue
+        }
+        return urlRequest
+    }
+
     
     fileprivate let configuration: URLSessionConfiguration
     fileprivate let serverTrustPolicyManager: ServerTrustPolicyManager?
@@ -46,22 +93,6 @@ open class AlamofireUtility: Alamofire.SessionDelegate, IHTTPUtility {
         }
     }
     
-    open func post(_ url: URL, data: Any?, headers: [String: String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return requestHandler(url: url, method: HTTPMethod.post, data: data, headers: headers, completionHandler: completionHandler)
-    }
-    
-    open func put(_ url: URL, data: Any?, headers: [String: String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return requestHandler(url: url, method: HTTPMethod.put, data: data, headers: headers, completionHandler: completionHandler)
-    }
-    
-    open func get(_ url: URL, data: Any?, headers: [String:String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return requestHandler(url: url, method: HTTPMethod.get, data: data, headers: headers, completionHandler: completionHandler)
-    }
-    
-    open func delete(_ url: URL, data: Any?, headers: [String:String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return requestHandler(url: url, method: HTTPMethod.delete, data: data, headers: headers, completionHandler: completionHandler)
-    }
-    
     open func clearSession(completion: @escaping () -> Void) {
         let session = sessionManager.session
         log.debug("Invaliding session and cancelling tasks...")
@@ -71,52 +102,6 @@ open class AlamofireUtility: Alamofire.SessionDelegate, IHTTPUtility {
             self.sessionManager = nil
             completion()
         }
-    }
-    
-    // MARK: - Private Interface
-    
-    fileprivate func requestHandler(url: URL, method: HTTPMethod, data: Any?, headers: [String: String?]? = nil, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        
-        let parameterEncoding: HTTPUtilityParameterEncoding? = HTTPUtilityParameterEncoding.json
-        
-        delegate?.httpUtilityActivityDidBegin(self)
-        
-        let parameters: Parameters? = data as? Parameters
-        
-        var httpHeaders: HTTPHeaders = [:]
-        delegate?.defaultHeaders().forEach { (key, value) in httpHeaders[key] = value }
-        headers?.forEach { (key, value) in httpHeaders[key] = value }
-
-        
-        var alamofireParameterEncoding: ParameterEncoding = JSONEncoding.default
-        if method == HTTPMethod.get {
-            alamofireParameterEncoding = URLEncoding.default
-        } else if let parameterEncoding = parameterEncoding {
-            alamofireParameterEncoding = parameterEncoding == HTTPUtilityParameterEncoding.url ? URLEncoding.queryString : JSONEncoding.default
-        }
-        
-        log.debug(method, parameterEncoding, url, data)
-        
-        let request = sessionManager.request(url, method: method, parameters: parameters, encoding: alamofireParameterEncoding, headers: httpHeaders)
-            .responseJSON { response in
-                
-                self.delegate?.httpUtilityActivityDidEnd(self)
-                let httpResponse = response.response ?? HTTPURLResponse()
-                
-                self.logResponseDetails(url: url, method: method, data: data, headers: headers, response: response)
-                
-                completionHandler(httpResponse, response.data, response.result.error)
-                self.delegate?.httpUtilityRequestDidComplete(self, withStatus: httpResponse.statusCode)
-                
-                
-        }
-        
-        var urlRequest: URLRequest! = request.request
-        if urlRequest == nil {
-            urlRequest = URLRequest(url: url)
-            urlRequest.httpMethod = method.rawValue
-        }
-        return urlRequest
     }
     
     

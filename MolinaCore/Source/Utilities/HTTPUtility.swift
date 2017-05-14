@@ -10,7 +10,7 @@ import Foundation
 
 open class HTTPUtility: IHTTPUtility {
 
-    open static let defaultInstance = HTTPUtility()
+    open static let `default` = HTTPUtility()
 
     open var delegate: IHTTPUtilityDelegate? = nil
 
@@ -23,9 +23,7 @@ open class HTTPUtility: IHTTPUtility {
     }
 
     @discardableResult
-    fileprivate func requestHandler(url: URL, method: String, data: Any?, headers: [String: String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        delegate?.httpUtilityActivityDidBegin(self)
-
+    public func request(method: String, url: URL, data: Any?, headers: [String : String?]?, completion: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
         var request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: self.timeoutInterval)
         request.httpMethod = method
 
@@ -55,32 +53,12 @@ open class HTTPUtility: IHTTPUtility {
 
             log.debug(url, method, "\n", JSON(headers as Any), "\n", JSON(data as Any), "\n", httpResponse.statusCode, JSON(responseJson as Any), "\n", error?.localizedDescription)
 
-            completionHandler(httpResponse, data, error)
+            completion(httpResponse, data, error)
 
         }
-
+        
         task.resume()
         return request
-    }
-
-    @discardableResult
-    open func post(_ url: URL, data: Any?, headers: [String: String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return requestHandler(url: url, method: "POST", data: data, headers: headers, completionHandler: completionHandler)
-    }
-
-    @discardableResult
-    open func put(_ url: URL, data: Any?, headers: [String: String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return requestHandler(url: url, method: "PUT", data: data, headers: headers, completionHandler: completionHandler)
-    }
-
-    @discardableResult
-    open func get(_ url: URL, data: Any?, headers: [String:String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return requestHandler(url: url, method: "GET", data: data, headers: headers, completionHandler: completionHandler)
-    }
-
-    @discardableResult
-    open func delete(_ url: URL, data: Any?, headers: [String:String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return requestHandler(url: url, method: "DELETE", data: data, headers: headers, completionHandler: completionHandler)
     }
 
     // MARK: - URLSessionDelegate

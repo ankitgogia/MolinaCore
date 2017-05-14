@@ -27,64 +27,32 @@ extension IHTTPUtilityDelegate {
 public protocol IHTTPUtility: class {
     var delegate: IHTTPUtilityDelegate? { get set }
 
-    /**
-     HTTP GET - Retrieves data from a web service
-     - parameter url: NSURL - The location of the web service
-     - parameter accessToken: String? - The authentication accessToken that validates the user is logged in
-     - parameter completionHandler: (statusCode: Int, data: NSData?, error: NSError?)
-     */
+    @discardableResult
+    func request(method: String, url: URL, data: Any?, headers: [String: String?]?, completion: @escaping HTTPUtilityCompletionHandler) -> URLRequest
 
-    @discardableResult
-    func get(_ url: URL, data: Any?, headers: [String :String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest
-
-    /**
-     HTTP POST - Sends data to a web service
-     - parameter url: NSURL - The location of the web service
-     - parameter data: [String:Any]? - The data we want to send
-     - parameter accessToken: String? - The authentication accessToken that validates the user is logged in
-     - parameter completionHandler: (statusCode: Int, data: NSData?, error: NSError?)
-     */
-    
-    @discardableResult
-    func post(_ url: URL, data: Any?, headers: [String :String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest
-
-    /**
-     HTTP PUT - Sends data to a web service
-     - parameter url: NSURL - The location of the web service
-     - parameter data: [String:Any]? - The data we want to send
-     - parameter accessToken: String? - The authentication accessToken that validates the user is logged in
-     - parameter completionHandler: (statusCode: Int, data: NSData?, error: NSError?)
-     */
-    
-    @discardableResult
-    func put(_ url: URL, data: Any?, headers: [String :String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest
-    
-    @discardableResult
-    func delete(_ url: URL, data: Any?, headers: [String :String?]?, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest
-    
     func clearSession(completion: @escaping () -> Void)
 }
 
 extension IHTTPUtility {
 
     @discardableResult
-    public func get(_ url: URL, data: Any? = nil, headers: [String :String?]? = nil, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return get(url, data: data, headers: headers, completionHandler: completionHandler)
+    public func get(_ url: URL, data: Any? = nil, headers: [String :String?]? = nil, completion: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
+        return request(method: "get", url: url, data: data, headers: headers, completion: completion)
     }
 
     @discardableResult
-    public func post(_ url: URL, data: Any? = nil, headers: [String :String?]? = nil, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return post(url, data: data, headers: headers, completionHandler: completionHandler)
+    public func post(_ url: URL, data: Any? = nil, headers: [String :String?]? = nil, completion: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
+        return request(method: "post", url: url, data: data, headers: headers, completion: completion)
     }
 
     @discardableResult
-    public func put(_ url: URL, data: Any? = nil, headers: [String :String?]? = nil, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return put(url, data: data, headers: headers, completionHandler: completionHandler)
+    public func put(_ url: URL, data: Any? = nil, headers: [String :String?]? = nil, completion: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
+        return request(method: "put", url: url, data: data, headers: headers, completion: completion)
     }
 
     @discardableResult
-    public func delete(_ url: URL, data: Any? = nil, headers: [String :String?]? = nil, completionHandler: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
-        return delete(url, data: data, headers: headers, completionHandler: completionHandler)
+    public func delete(_ url: URL, data: Any? = nil, headers: [String :String?]? = nil, completion: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
+        return request(method: "delete", url: url, data: data, headers: headers, completion: completion)
     }
     
     public func clearSession(completion: @escaping () -> Void) {

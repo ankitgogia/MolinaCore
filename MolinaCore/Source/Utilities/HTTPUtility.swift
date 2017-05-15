@@ -53,6 +53,28 @@ open class HTTPUtility: IHTTPUtility {
 
             log.debug(url, method, "\n", JSON(headers as Any), "\n", JSON(data as Any), "\n", httpResponse.statusCode, JSON(responseJson as Any), "\n", error?.localizedDescription)
 
+            completionHandler(httpResponse, data, error)
+
+        }
+        
+        task.resume()
+        return request
+    }
+
+        let task = self.session.dataTask(with: request) { data, response, error in
+
+            self.delegate?.httpUtilityActivityDidEnd(self)
+            let httpResponse = response as? HTTPURLResponse ?? HTTPURLResponse()
+
+            let responseJson: Any? = {
+                if let data = data {
+                    return try? JSONSerialization.jsonObject(with: data)
+                }
+                return nil
+            }()
+
+            log.debug(url, method, "\n", JSON(headers as Any), "\n", JSON(data as Any), "\n", httpResponse.statusCode, JSON(responseJson as Any), "\n", error?.localizedDescription)
+
             completion(httpResponse, data, error)
 
         }

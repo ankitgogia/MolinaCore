@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MolinaCore.xcodeproj">
+      location = "self:MolinaCoreExample.xcodeproj">
    </FileRef>
 </Workspace>

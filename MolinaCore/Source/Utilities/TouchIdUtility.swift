@@ -9,14 +9,11 @@
 import Foundation
 import LocalAuthentication
 
-public struct TouchIdUtility {
-
-    public static let shared = TouchIdUtility()
-    public let context: LAContext
+public class TouchIdUtility {
     
-    public init(context: LAContext = LAContext()) {
-        self.context = context
-    }
+    public let context: LAContext = LAContext()
+    
+    public init() {}
 
     public var isTouchIdSupported: Bool {
         var error: NSError?
@@ -24,12 +21,12 @@ public struct TouchIdUtility {
         return isTouchIdSupported
     }
 
-    public func verify(reason: String = "Authenticate with Touch ID", fallbackTitle: String = "", completion: @escaping (Bool, LAError.Code?) -> Void) {
+    public func verify(reason: String = "Authenticate with Touch ID", fallbackTitle: String? = nil, completion: @escaping (Bool, LAError.Code?) -> Void) {
         guard isTouchIdSupported else { return }
         
-        context.localizedFallbackTitle = fallbackTitle
+        self.context.localizedFallbackTitle = fallbackTitle == nil ? "" : fallbackTitle
 
-        context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success: Bool, error: Error?) in
+        self.context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success: Bool, error: Error?) in
             NSObject().delay(0.01) {
                 if let error = error, let laError = LAError.Code(rawValue: error.code) {
                     completion(false, laError)
@@ -38,5 +35,10 @@ public struct TouchIdUtility {
                 }
             }
         }
+    }
+    
+    @available(iOS 9.0, *)
+    public func cancelVerification() {
+        self.context.invalidate()
     }
 }

@@ -14,7 +14,7 @@ open class AlamofireUtility: Alamofire.SessionDelegate, IHTTPUtility {
     @discardableResult
     public func request(method: String, url: URL, data: Any?, headers: [String : String?]?, completion: @escaping HTTPUtilityCompletionHandler) -> URLRequest {
 
-        let method = HTTPMethod(rawValue: method) ?? .get
+        let method = HTTPMethod(rawValue: method.uppercased()) ?? .get
 
         let parameterEncoding: HTTPUtilityParameterEncoding? = HTTPUtilityParameterEncoding.json
 

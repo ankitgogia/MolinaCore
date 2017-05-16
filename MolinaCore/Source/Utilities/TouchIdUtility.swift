@@ -26,12 +26,10 @@ public class TouchIdUtility {
         
         self.context.localizedFallbackTitle = fallbackTitle == nil ? "" : fallbackTitle
 
-        context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success: Bool, error: Error?) in
-            DispatchQueue.global().asyncAfter(seconds: 0.01) {
-
-                if let error = error as NSError?,
-                    let laError = LAError.Code(rawValue: error.code) {
-                        completion(false, laError)
+        self.context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success: Bool, error: Error?) in
+            NSObject().delay(0.01) {
+                if let error = error, let laError = LAError.Code(rawValue: error.code) {
+                    completion(false, laError)
                 } else {
                     completion(success, nil)
                 }

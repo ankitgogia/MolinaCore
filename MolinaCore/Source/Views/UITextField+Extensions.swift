@@ -11,8 +11,8 @@ import UIKit
 
 private var validationKey: UInt8 = 10
 
-public extension UITextField {
-
+extension UITextField {
+    
     @IBInspectable
     public var ValidationFormat: String? {
         get {
@@ -23,14 +23,13 @@ public extension UITextField {
         }
     }
     
-    public func validate() -> Bool {
+    public var isValid: Bool {
         guard let validationFormat: String = ValidationFormat, !validationFormat.isEmpty else { return true }
         guard let text: String = self.text else { return false }
         let isValid: Bool = text.validate(validationFormat)
         return isValid
     }
     
-    public var isValid: Bool { return validate() }
+    public func validate() -> Bool { return isValid }
     
-
 }
